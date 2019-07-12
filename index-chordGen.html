@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+            <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+            <link type="text/css" rel="stylesheet" href="../Chord_Generatorv2/style.css">
+            <title>Chord Generator V2</title>
+    </head>
+    <body>
+        <h1>Chord Generator</h1>
+
+        <div class="gen-wrapper">
+    
+            <div class="ch-menu-wrapper">
+                
+                <div class="root-menu">
+                    <p id="menu-label">ROOT</p>   
+                    <select class="menu-style rt">
+                        <option value="sel" disabled selected>select</option>
+                        <option value="a">A</option>
+                        <option value="aSh">A#/Bb</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="cSh">C#/Db</option>
+                        <option value="d">D</option>
+                        <option value="dSh">D#/Eb</option>
+                        <option value="e">E</option>
+                        <option value="f">F</option>
+                        <option value="fSh">F#/Gb</option>
+                        <option value="g">G</option>
+                        <option value="gSh">G#/Ab</option> 
+                    </select>
+                </div>
+                <div class="qual-menu">
+                    <p id="menu-label">QUALITY</p>
+                    <select class="menu-style q">
+                        <option value="none" selected>none</option>
+                        <option value="M" >M</option>
+                        <option value="M6">M6</option>
+                        <option value="M7">M7</option>
+                        <option value="m">m</option>
+                        <option value="min6">m6</option>
+                        <option value="min7">m7</option>
+                        <option value="min/M7">min/M7</option>
+                        <option value="min7b5">m7b5</option>
+                        <option value="dim">dim</option>
+                        <option value="dim7">dim7</option>
+                        <option value="aug">aug</option>
+                        <option value="aug7">aug7</option>
+                        <option value="sus2">sus2</option>
+                        <option value="sus4">sus4</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="ex-menu">
+                    <p id="menu-label">EXTENSION</p>
+                    <select class="menu-style ex">
+                        <option value="null">none</option>
+                        <option value="b9">b9</option>
+                        <option value="9">9</option>
+                        <option value="#9">#9</option>
+                        <option value="11">11</option>
+                        <option value="#11">#11</option>
+                        <option value="#5">#5</option>
+                        <option value="b13">b13</option>
+                        <option value="13">13</option>
+                    </select>
+                </div>
+
+                <button id="btn-menu-gen">GENERATE</button>
+
+                <button id="btn-rand-gen">RANDOM!</button>
+
+            </div>
+                  
+            <div class="disp-wrapper">
+                
+                <div class="rand-chord-disp">
+                        <div id="root-disp"></div>
+                        <div id="qual-disp"></div>
+                        <div id="ex-disp"></div>
+                </div>
+                
+                <!--   FRETBOARD CONTAINER AND STRINGS    -->
+                <div class="fretboard">
+                        <div class="string">
+                            <div class="high-e-string"></div>
+                            <div class="b-string"></div>
+                            <div class="g-string"></div>
+                            <div class="d-string"></div>
+                            <div class="a-string"></div>
+                            <div class="low-e-string"></div>
+                        </div>
+                        
+                        <!--/////////////NOTE MARKERS//////-->
+                        <!--LOW E STRING-->
+                        <div class="mrk low-e note-c"></div>
+                        <div class="mrk low-e note-c-sh"></div>
+                        <div class="mrk low-e note-d"></div>
+                        <div class="mrk low-e note-d-sh"></div>
+                        <div class="mrk low-e note-e"></div>
+                        <div class="mrk low-e note-e open"></div>
+                        <div class="mrk low-e note-f"></div>
+                        <div class="mrk low-e note-f-sh"></div>
+                        <div class="mrk low-e note-g"></div>
+                        <div class="mrk low-e note-g-sh"></div>
+                        <div class="mrk low-e note-a"></div>
+                        <div class="mrk low-e note-a-sh"></div>
+                        <div class="mrk low-e note-b"></div>
+
+                        <!--A STRING -->
+                        <div class="mrk a note-c"></div>
+                        <div class="mrk a note-c-sh"></div>
+                        <div class="mrk a note-d"></div>
+                        <div class="mrk a note-d-sh"></div>
+                        <div class="mrk a note-e"></div>
+                        <div class="mrk a note-f"></div>
+                        <div class="mrk a note-f-sh"></div>
+                        <div class="mrk a note-g"></div>
+                        <div class="mrk a note-g-sh"></div>
+                        <div class="mrk a note-a"></div>
+                        <div class="mrk a note-a open"></div>
+                        <div class="mrk a note-a-sh"></div>
+                        <div class="mrk a note-b"></div>
+
+                        <!--D STRING -->
+                        <div class="mrk d note-c"></div>
+                        <div class="mrk d note-c-sh"></div>
+                        <div class="mrk d note-d"></div>
+                        <div class="mrk d note-d open"></div>
+                        <div class="mrk d note-d-sh"></div>
+                        <div class="mrk d note-e"></div>
+                        <div class="mrk d note-f"></div>
+                        <div class="mrk d note-f-sh"></div>
+                        <div class="mrk d note-g"></div>
+                        <div class="mrk d note-g-sh"></div>
+                        <div class="mrk d note-a"></div>
+                        <div class="mrk d note-a-sh"></div>
+                        <div class="mrk d note-b"></div>
+                        
+                        <!--G STRING -->
+                        <div class="mrk g note-c"></div>
+                        <div class="mrk g note-c-sh"></div>
+                        <div class="mrk g note-d"></div>
+                        <div class="mrk g note-d-sh"></div>
+                        <div class="mrk g note-e"></div>
+                        <div class="mrk g note-f"></div>
+                        <div class="mrk g note-f-sh"></div>
+                        <div class="mrk g note-g"></div>
+                        <div class="mrk g note-g open"></div>
+                        <div class="mrk g note-g-sh"></div>
+                        <div class="mrk g note-a"></div>
+                        <div class="mrk g note-a-sh"></div>
+                        <div class="mrk g note-b"></div>
+
+                        <!--B STRING-->
+                        <div class="mrk b note-c"></div>
+                        <div class="mrk b note-c-sh"></div>
+                        <div class="mrk b note-d"></div>
+                        <div class="mrk b note-d-sh"></div>
+                        <div class="mrk b note-e"></div>
+                        <div class="mrk b note-f"></div>
+                        <div class="mrk b note-f-sh"></div>
+                        <div class="mrk b note-g"></div>
+                        <div class="mrk b note-g-sh"></div>
+                        <div class="mrk b note-a"></div>
+                        <div class="mrk b note-a-sh"></div>
+                        <div class="mrk b note-b"></div>
+                        <div class="mrk b note-b open"></div>
+
+                        <!--HI E STRING -->
+                        <div class="mrk hi-e note-c"></div>
+                        <div class="mrk hi-e note-c-sh"></div>
+                        <div class="mrk hi-e note-d"></div>
+                        <div class="mrk hi-e note-d-sh"></div>
+                        <div class="mrk hi-e note-e"></div>
+                        <div class="mrk hi-e note-e open"></div>
+                        <div class="mrk hi-e note-f"></div>
+                        <div class="mrk hi-e note-f-sh"></div>
+                        <div class="mrk hi-e note-g"></div>
+                        <div class="mrk hi-e note-g-sh"></div>
+                        <div class="mrk hi-e note-a"></div>
+                        <div class="mrk hi-e note-a-sh"></div>
+                        <div class="mrk hi-e note-b"></div>
+                        
+                        <!--      FRETS        -->
+                        <div class="frets">
+                            <div class="fret-1"></div>
+                            <div class="fret-2"></div>
+                            <div class="fret-3"></div>
+                            <div class="fret-4"></div>
+                            <div class="fret-5"></div>
+                            <div class="fret-6"></div>
+                            <div class="fret-7"></div>
+                            <div class="fret-8"></div>
+                            <div class="fret-9"></div>
+                            <div class="fret-10"></div>
+                            <div class="fret-11"></div>
+                            <div class="fret-12"></div>
+                            <div class="fret-13"></div>    
+                            <span class="dot third-fret"></span>
+                            <span class="dot fifth-fret"></span>
+                            <span class="dot seventh-fret"></span>
+                            <span class="dot ninth-fret"></span>
+                            <span class="dot twelfth-fret-top"></span>
+                            <span class="dot twelfth-fret-bottom"></span>
+                        </div>
+        
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <script src="ChGenV2.js"></script>
+    </body>
+
+
+
+</html>
